@@ -72,12 +72,6 @@ file_table := $DD9F     ; file address table
 
 DEFAULT_FONT := $8800
 
-;;; Modified by Show Text File DA to toggle fixed width
-font_flag       := $8800 
-font_size_count := $8801 
-font_height     := $8802 
-font_width_table := $8803
 
-font_glyphs     := $8883
             
 

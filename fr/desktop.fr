@@ -1,0 +1,83 @@
+
+
+DA_LOAD_ADDRESS := $800
+DA_MAX_SIZE     := $1C00 - DA_LOAD_ADDRESS
+
+
+
+JUMP_TABLE_00           := $4000
+JUMP_TABLE_MGTK_RELAY   := $4003 
+JUMP_TABLE_06           := $4006
+JUMP_TABLE_09           := $4009 
+JUMP_TABLE_0C           := $400C 
+JUMP_TABLE_0F           := $400F 
+JUMP_TABLE_EJECT        := $4012 
+JUMP_TABLE_REDRAW_ALL   := $4015
+JUMP_TABLE_DESKTOP_RELAY:= $4018 
+JUMP_TABLE_LOAD_SEG     := $401B 
+JUMP_TABLE_CLEAR_SEL    := $401E 
+JUMP_TABLE_MLI          := $4021 
+JUMP_TABLE_COPY_TO_BUF  := $4024
+JUMP_TABLE_COPY_FROM_BUF:= $4027 
+JUMP_TABLE_NOOP         := $402A 
+JUMP_TABLE_2D           := $402D 
+JUMP_TABLE_30           := $4030 
+JUMP_TABLE_33           := $4033 
+JUMP_TABLE_LAUNCH_FILE  := $4036
+JUMP_TABLE_CUR_POINTER  := $4039 
+JUMP_TABLE_CUR_WATCH    := $403C 
+JUMP_TABLE_RESTORE_SEG  := $403F 
+
+
+
+
+
+DESKTOP    := $8E00
+
+  
+
+DESKTOP_REDRAW_ICONS := $0C     ; Repaints desktop icons
+
+
+
+.macro  DESKTOP_CALL    op, addr, label
+        jsr DESKTOP
+        .byte op
+
+.if .paramcount > 2
+        label := *
+.endif
+
+.if .paramcount > 1
+        .addr addr
+.else
+        .addr 0
+.endif
+.endmacro
+
+
+
+
+
+file_selected := $DF21  ; 0 if no selection, 1 otherwise
+path_index := $DF20     ; index of selected window (used to get prefix)
+path_table := $DFB3     ; window address table
+
+file_index := $DF22     ; index of selected file (global, not w/in window)
+file_table := $DD9F     ; file address table
+
+
+
+
+
+DEFAULT_FONT := $8800
+
+;;; Modified by Show Text File DA to toggle fixed width
+font_flag       := $8800 
+font_size_count := $8801 
+font_height     := $8802 
+font_width_table := $8803
+
+font_glyphs     := $8883
+            
+

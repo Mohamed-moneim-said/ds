@@ -73,5 +73,5 @@ file_table := $DD9F     ; file address table
 DEFAULT_FONT := $8800
 
 
-            
+WINDOW :=            
 

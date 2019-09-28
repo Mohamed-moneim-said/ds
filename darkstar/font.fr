@@ -2,3 +2,16 @@
 ;;; Font
 
 font_definition:
+
+        .assert * = font_flag, error, "Entry point mismatch"
+        .byte   $00
+
+        .assert * = font_size_count, error, "Entry point mismatch"
+        .byte   $7F
+
+        .assert * = font_height, error, "Entry point mismatch"
+        .byte   9
+
+        .assert * = font_width_table, error, "Entry point mismatch"
+   
+    

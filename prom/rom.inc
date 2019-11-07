@@ -1,2 +1,1 @@
-include "drakstar/system/desktop.inc"
-
+include "drakstar/"
